@@ -1,10 +1,16 @@
-import './App.css';
+import './css/App.css';
+import Video from './Components/Video'
+import SearchForm from './Components/SearchForm';
+import QueryProvider from './context/QueryContext'
 
 function App() {
   return (
-    <div className="App">
-      <p>HEllo world</p>
+    <QueryProvider>
+      <div className="App">
+        <Video />
+        <SearchForm />
     </div>
+    </QueryProvider>
   );
 }
 
