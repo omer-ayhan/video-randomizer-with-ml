@@ -9,9 +9,9 @@ function Video() {
   useEffect(() => {
     console.log(query.q);
     axios
-      .get(
-        `https://youtube.googleapis.com/youtube/v3/search?part=id&maxResults=1&q=${query.q}&regionCode=US&key=${YOUTUBE_API.API}`
-      )
+      .get
+      // `https://youtube.googleapis.com/youtube/v3/search?part=id&maxResults=1&q=${query.q}&regionCode=US&key=${YOUTUBE_API.API}`
+      ()
       .then((res) => {
         setVideo({ list: res.data });
       });
