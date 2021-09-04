@@ -7,11 +7,13 @@ function Video() {
   const [query] = useContext(QueryDataContext);
   const [video, setVideo] = useState();
   useEffect(() => {
+    console.log(query);
     console.log(query.q);
+    console.log(query.region);
     axios
-      .get
-      // `https://youtube.googleapis.com/youtube/v3/search?part=id&maxResults=1&q=${query.q}&regionCode=US&key=${YOUTUBE_API.API}`
-      ()
+      .get(
+        `https://youtube.googleapis.com/youtube/v3/search?part=id&safeSearch=${query.safe}&maxResults=1&q=${query.q}&regionCode=US&key=${YOUTUBE_API.API}`
+      )
       .then((res) => {
         setVideo({ list: res.data });
       });
@@ -26,9 +28,9 @@ function Video() {
           height="450"
           src={`https://www.youtube.com/embed/${e.id.videoId}`}
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+          allowFullScreen></iframe>
       ));
     } else return;
   };

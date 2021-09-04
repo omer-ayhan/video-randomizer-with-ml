@@ -10,7 +10,8 @@ function SearchForm() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setQuery({ q: keyword });
+    // setQuery((previousQuery) => ({ ...previousQuery, q: keyword }));
+    setQuery({ ...query, q: keyword });
     setKeyword("");
   };
   const handleChange = (e) => {
@@ -27,13 +28,14 @@ function SearchForm() {
             onChange={handleChange}
             className="col-span-7 outline-none h-10 font-medium text-lg"
             style={inputStyle}
+            required
           />
           <div className="col-start-8 col-end-8">
-            <DropdownRender />
-            <label className="w-11 p-3 rounded-md shadow-md uppercase border border-blue cursor-pointer hover:bg-blue-600 hover:text-white text-blue-600 ease-linear transition-all duration-150 z-50">
-              <i class="fas fa-image"></i>
+            <label className="p-3 rounded-md shadow-md uppercase border border-blue cursor-pointer hover:bg-blue-600 hover:text-white text-blue-600 ease-linear transition-all duration-150 z-50">
+              <i className="fas fa-image"></i>
               <input type="file" className="hidden" />
             </label>
+            <DropdownRender />
           </div>
         </div>
         <button
