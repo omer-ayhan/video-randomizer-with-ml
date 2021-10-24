@@ -1,2 +1,2 @@
 # Video Randomizer with Machine Learning and React
-## In Development
+## Still In Progress
